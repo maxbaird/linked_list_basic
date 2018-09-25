@@ -31,18 +31,36 @@ int main()
   n4.next = &n5; /* n4.next is assigned the address of n5 */
   n5.next = NULL; /* n5.next is assigned NULL to indicate it's the end of the list */
 
-  /* Now to iterate over the list and print every value */
+  /* Now to print the list moving from node to node */
 
-  /* We need a pointer that will move from node to node starting
-   * from the first node.
-   */
-  struct node *current = &n1; //Get address of first node 
+  struct node *current = NULL; //This will be the pointer we move from one node to the other
 
-  while(current != NULL)
-  {
-    fprintf(stdout, "Data: %d\n", current->data);
-    current = current->next; //Get the address of the next node
-  }
+  current = &n1; //Get the address of n1
+  fprintf(stdout, "Data: %d\n", current->data); //Print data of n1
+  
+  /* Now remember, n1 was assigned the address of n2 (n1.next = &n2) */
+  /* So to get the address of n2 we can simply do the following */
+
+  current = current->next; /* Here we get the address of n2 and make it the current node */
+  fprintf(stdout, "Data: %d\n", current->data); //Print data of n2
+
+  /* Now remember, n2 was assigned the address of n3 (n2.next = &n3) */
+  /* So to get the address of n3 we can simply do the following */
+
+  current = current->next; /* Here we get the address of n3 and make it the current node */
+  fprintf(stdout, "Data: %d\n", current->data); //Print data of n3
+
+  /* Now remember, n3 was assigned the address of n4 (n3.next = &n4) */
+  /* So to get the address of n3 we can simply do the following */
+
+  current = current->next; /* Here we get the address of n4 and make it the current node */
+  fprintf(stdout, "Data: %d\n", current->data); //Print data of n4
+
+  /* Now remember, n4 was assigned the address of n5 (n4.next = &n5) */
+  /* So to get the address of n5 we can simply do the following */
+
+  current = current->next; /* Here we get the address of n5 and make it the current node */
+  fprintf(stdout, "Data: %d\n", current->data); //Print data of n5
 
   return EXIT_SUCCESS;
 }
